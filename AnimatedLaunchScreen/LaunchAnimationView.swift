@@ -11,18 +11,20 @@ import SwiftUI
 
 struct LaunchAnimationView: View {
     @State private var animationAmount = 0.0
+
+    let animationCount = 4.0
+
     var body: some View {
         ZStack {
-            Image("Splash")
+            Image("StarYellow")
                 .resizable()
                 .scaledToFill()
-            Image("Drop")
+            Image("StarRed")
                 .resizable()
                 .scaledToFill()
 
-                    .opacity(animationAmount / 4)
+                .opacity(animationAmount / animationCount)
 
-//                    .scaleEffect(animationAmount )
                 .animation(
                     Animation.easeInOut(duration: 1)
                         .repeatForever(autoreverses: true),
@@ -31,7 +33,7 @@ struct LaunchAnimationView: View {
         }
         .ignoresSafeArea()
         .onAppear {
-            animationAmount = 4.0
+            animationAmount = animationCount
         }
     }
 }
