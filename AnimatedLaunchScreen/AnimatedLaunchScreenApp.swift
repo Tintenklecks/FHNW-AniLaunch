@@ -17,7 +17,7 @@ struct AnimatedLaunchScreenApp: App {
             } else {
                 LaunchAnimationView()
                     .onAppear {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 7) {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 5.5) {
                             showApp.toggle()
                         }
                     }

@@ -23,6 +23,7 @@ struct LaunchAnimationView: View {
                     value: fadein
                 )
         }
+        .background(Color.orange.opacity(fadein / 5))
 
         .ignoresSafeArea()
         .onAppear {
