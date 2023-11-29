@@ -5,35 +5,28 @@
 //  Created by Ingo Boehme on 07.12.22.
 //
 
+import Lottie
 import SwiftUI
 
 // MARK: - LaunchAnimationView
 
 struct LaunchAnimationView: View {
-    @State private var animationAmount = 0.0
-
-    let animationCount = 4.0
+    @State private var fadein = 0.0
 
     var body: some View {
         ZStack {
-            Image("StarYellow")
-                .resizable()
-                .scaledToFill()
-            Image("StarRed")
-                .resizable()
-                .scaledToFill()
-
-                .opacity(animationAmount / animationCount)
-
+            
+            LottieSUIView(animationName: "world.json")
+                .opacity(fadein)
                 .animation(
-                    Animation.easeInOut(duration: 1)
-                        .repeatForever(autoreverses: true),
-                    value: animationAmount
+                    Animation.easeOut(duration: 3),
+                    value: fadein
                 )
         }
+
         .ignoresSafeArea()
         .onAppear {
-            animationAmount = animationCount
+            fadein = 1
         }
     }
 }
